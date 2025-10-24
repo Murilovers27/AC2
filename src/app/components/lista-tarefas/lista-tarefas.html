@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>Minha Lista de Tarefas</h2>
+
+  <!-- Requisito: Seção de Contadores -->
+  <div class="contadores">
+    <span>Total: {{ totalTarefas }}</span>
+    <span class="pendentes">Pendentes: {{ tarefasPendentes }}</span>
+    <span class="concluidas">Concluídas: {{ tarefasConcluidas }}</span>
+  </div>
+
+  <!-- Requisito: Link para voltar ao cadastro -->
+  <div class="link-navegacao">
+    <a routerLink="/cadastrar">Cadastrar Nova Tarefa</a>
+  </div>
+
+  <hr>
+
+
+  <ul class="lista" *ngIf="tarefas.length > 0; else listaVazia">
+    
+    <!-- 
+      *ngFor="let tarefa of tarefas" -> É o loop que cria
+      um <li> para cada item na nossa array 'tarefas'
+    -->
+    <li *ngFor="let tarefa of tarefas" 
+        [class.item-concluido]="tarefa.concluida">
+        <!-- 
+          [class.item-concluido]="tarefa.concluida"
+          Isso aplica a classe CSS 'item-concluido' SE 'tarefa.concluida' for true.
+          É assim que faremos o sublinhado.
+        -->
+      
+      <div class="info-tarefa">
+        <span class="descricao">{{ tarefa.descricao }}</span>
+        
+        <!-- 
+          Usamos o 'DatePipe' (do CommonModule) para formatar o prazo.
+          'dd/MM/yyyy HH:mm' = Dia/Mês/Ano Hora:Minuto
+        -->
+        <span class="prazo">
+          Prazo: {{ tarefa.prazoDeConclusao | date: 'dd/MM/yyyy HH:mm' }}
+        </span>
+      </div>
+
+      <div class="acoes">
+        <!-- 
+          Botão Concluir (Verde)
+          *ngIf="!tarefa.concluida" -> Só aparece se a tarefa
+          AINDA NÃO foi concluída.
+        -->
+        <button 
+          *ngIf="!tarefa.concluida"
+          class="btn-concluir" 
+          (click)="concluir(tarefa.id)">
+          Concluir
+        </button>
+        
+        <!-- 
+          Botão Remover (Laranja)
+          Chama o método 'remover()' passando o ID da tarefa
+        -->
+        <button 
+          class="btn-remover" 
+          (click)="remover(tarefa.id)">
+          Remover
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 
+    Template <ng-template> para a Lista Vazia
+    '#listaVazia' -> É a referência que o *ngIf usa no 'else'
+    Requisito: "Mostre uma mensagem 'Nenhuma tarefa cadastrada'"
+  -->
+  <ng-template #listaVazia>
+    <div class="lista-vazia">
+      <p>Nenhuma tarefa cadastrada.</p>
+      <p>Que tal <a routerLink="/cadastrar">adicionar uma</a>?</p>
+    </div>
+  </ng-template>
+
+</div>
