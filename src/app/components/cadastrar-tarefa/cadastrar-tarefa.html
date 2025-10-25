@@ -1,10 +1,7 @@
 <div class="container">
   <h2>Cadastrar Nova Tarefa</h2>
 
-  <!-- 
-    Usamos o [(ngModel)] (do FormsModule) para fazer o "two-way data binding"
-    O que for digitado aqui vai para a propriedade 'descricao' no .ts
-  -->
+
   <div class="form-group">
     <label for="descricao">Descrição:</label>
     <input 
@@ -16,24 +13,18 @@
   
   <div class="form-group">
     <label for="prazo">Prazo de Conclusão:</label>
-    <!-- 
-      Usamos datetime-local para pegar data E hora
-      Ligado ao 'prazoString' no .ts
-    -->
+
     <input 
       type="datetime-local" 
       id="prazo" 
       [(ngModel)]="prazoString">
   </div>
 
-  <!-- 
-    O (click) chama o método 'cadastrar()' do nosso arquivo .ts
-  -->
+ 
   <button class="btn-cadastrar" (click)="cadastrar()">Cadastrar</button>
 
-  <!-- 
-    Requisito: "Deve ter um link (routerLink) para ir até a lista."
-  -->
+
+
   <div class="link-navegacao">
     <a routerLink="/lista">Ir para a Lista de Tarefas</a>
   </div>

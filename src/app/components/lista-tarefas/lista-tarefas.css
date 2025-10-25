@@ -1,16 +1,13 @@
-/* Contêiner principal (Painel de Madeira Escura) */
 .container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 2.5rem;
   
-  /* Fundo de madeira escura */
   background-color: #5a3d2b; 
-  color: #f0e9d6; /* Texto cor de pergaminho */
+  color: #f0e9d6;
 
-  /* Bordas que imitam o entalhe do AoE2 */
   border: 4px solid #3e2a1e;
-  border-style: ridge; /* Efeito de borda entalhada */
+  border-style: ridge; 
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6), 
               0 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
@@ -24,12 +21,10 @@ h2 {
   text-shadow: 1px 1px 2px #000;
 }
 
-/* --- Contadores (Painel de Pedra Cinza) --- */
 .contadores {
   display: flex;
   justify-content: space-around;
   
-  /* Fundo de pedra cinza (como a UI do AoE2) */
   background: #6d6050; 
   color: #f0e9d6;
   
@@ -38,25 +33,22 @@ h2 {
   font-weight: 700;
   
   border: 2px solid #4a4035;
-  border-style: groove; /* Borda de pedra */
+  border-style: groove; 
   border-radius: 4px;
 }
 .contadores span {
   font-size: 1.1rem;
   text-shadow: 1px 1px 1px #000;
 }
-/* Cores dos contadores (mantendo o requisito, mas em tons mais escuros) */
-.contadores .pendentes { color: #f0ad4e; } /* Laranja/Dourado */
-.contadores .concluidas { color: #8fbc8f; } /* Verde mais suave */
+.contadores .pendentes { color: #f0ad4e; } 
+.contadores .concluidas { color: #8fbc8f; } 
 
 
-/* --- Link de Navegação (Botão Dourado) --- */
 .link-navegacao {
   text-align: center;
   margin: 1.5rem 0;
 }
 .link-navegacao a {
-  /* Estilo de botão dourado (igual ao de cadastro) */
   background: linear-gradient(to bottom, #f0b92b, #d49a1a);
   color: #2a1c13;
   padding: 0.7rem 1.4rem;
@@ -77,10 +69,9 @@ h2 {
 
 hr {
   border: 0;
-  border-top: 2px groove #3e2a1e; /* Divisor entalhado */
+  border-top: 2px groove #3e2a1e;
 }
 
-/* --- Lista de Tarefas --- */
 .lista {
   list-style-type: none;
   padding: 0;
@@ -94,10 +85,8 @@ hr {
   padding: 1.25rem;
   margin-bottom: 0.75rem;
   
-  /* Requisito: "...em azul!" 
-    Vamos usar um azul "pedra" escuro, temático.
-  */
-  background: #3a4a6b; /* Azul pedra/ardósia */
+  
+  background: #3a4a6b; 
   border: 2px solid #2c3a5b;
   border-style: groove;
   
@@ -107,7 +96,7 @@ hr {
 }
 
 .lista li:hover {
-  background: #4a5a7b; /* Um pouco mais claro no hover */
+  background: #4a5a7b; 
 }
 
 .info-tarefa {
@@ -120,45 +109,40 @@ hr {
 .info-tarefa .descricao {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #f0e9d6; /* Texto pergaminho */
+  color: #f0e9d6; 
 }
 
 .info-tarefa .prazo {
   font-size: 0.9rem;
-  color: #b0a89a; /* Cor pergaminho mais clara/cinza */
+  color: #b0a89a;
   margin-top: 0.25rem;
   font-weight: 500;
 }
 
-/* Requisito: "Ao clicar em Concluir ... fica sublinada." */
 .item-concluido {
-  /* Fica "desgastado" */
   opacity: 0.7; 
-  background: #2a3a4b; /* Azul mais escuro/morto */
+  background: #2a3a4b; 
 }
 .item-concluido .descricao {
-  /* Requisito: Sublinhado */
   text-decoration: underline;
   text-decoration-thickness: 2px;
   
-  /* Bônus: A cor verde indica que foi concluída */
   text-decoration-color: #6a9c6a; 
-  color: #8fbc8f; /* Texto verde suave */
+  color: #8fbc8f; 
 }
 .item-concluido .prazo {
-  text-decoration: line-through; /* Risca o prazo */
+  text-decoration: line-through; 
 }
 
-/* --- Botões de Ação --- */
 .acoes {
-  white-space: nowrap; /* Impede que os botões quebrem a linha */
+  white-space: nowrap; 
 }
 .acoes button {
   padding: 0.6rem 0.9rem;
-  border: 2px solid #2a1c13; /* Borda escura */
-  border-style: outset; /* Efeito de botão */
+  border: 2px solid #2a1c13; 
+  border-style: outset;
   border-radius: 2px;
-  color: #f0e9d6; /* Texto pergaminho */
+  color: #f0e9d6;
   font-family: 'Cinzel', serif;
   font-weight: 700;
   cursor: pointer;
@@ -168,37 +152,34 @@ hr {
   text-shadow: 1px 1px 1px #000;
 }
 .acoes button:hover {
-  filter: brightness(1.2); /* Fica mais claro */
+  filter: brightness(1.2);
 }
 
-/* Requisito: "Botão Concluir ... em verde!" */
 .btn-concluir {
-  background-color: #4a7c4a; /* Verde medieval (floresta) */
+  background-color: #4a7c4a; 
 }
 
-/* Requisito: "Botão Remover ... em laranja!" */
 .btn-remover {
-  background-color: #b46a2a; /* Laranja (ferrugem/tijolo) */
+  background-color: #b46a2a; 
 }
 
-/* --- Requisito: Mensagem de Lista Vazia (Pergaminho Vazio) --- */
 .lista-vazia {
   text-align: center;
   margin-top: 2rem;
   padding: 2.5rem;
   
-  background: #f0e9d6; /* Fundo de pergaminho claro */
-  border: 2px dashed #8a6d3b; /* Borda marrom pontilhada */
+  background: #f0e9d6; 
+  border: 2px dashed #8a6d3b; 
   border-radius: 4px;
 }
 .lista-vazia p {
   font-size: 1.2rem;
-  color: #5a3d2b; /* Texto marrom escuro */
+  color: #5a3d2b; 
   margin: 0.5rem 0;
   font-weight: 600;
 }
 .lista-vazia a {
-  color: #b46a2a; /* Cor de link (laranja/ferrugem) */
+  color: #b46a2a; 
   font-weight: 700;
   text-decoration: none;
 }
